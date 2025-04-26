@@ -1,5 +1,6 @@
 # GelGIT
 
+[![Download](https://img.shields.io/badge/Download-GelGIT-blue.svg)](https://github.com/vectorsolv/gelgit/releases/latest)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)
 ![Built With](https://img.shields.io/badge/built%20with-Electron.js-brightgreen)
@@ -59,6 +60,16 @@ npm start
 ---
 
 ## 🛠 Packaging the Application
+
+### Important Note
+
+Before proceeding with packaging, ensure that the latest version of **Python** (3.8+ or higher) is installed on your system.  
+You can download it from the [official Python website](https://www.python.org/downloads/).  
+After installation, verify the version using:
+
+```bash
+python --version
+```
 
 ### Package a simple `.exe` (without installer)
 
@@ -125,3 +136,21 @@ For major changes, please open an issue first to discuss your ideas.
 Vectorsolv is a forward-thinking technology company specializing in intelligent software solutions.  
 GelGIT is part of our ongoing efforts to simplify developer workflows with smart automation tools.
 
+## ⚠️ Disclaimer
+
+When using the AI-powered commit summarization feature, be aware that analyzing repositories with a large number of commits may consume a significant number of tokens, especially if using GPT-4. This could lead to higher API usage costs.  
+
+To mitigate this, consider limiting the number of commits analyzed or summarizing only the most recent commits.
+
+## 📝 Todo
+
+- 🖼️ Add a splash screen during application startup.
+- 👤 Include the author of each commit in the analysis.
+- 📈 Add commit data visualization (e.g., graphs or charts).
+- 📄 Consider implementing a repository summarizer feature.
+- 🧪 Test and optimize performance for large repositories.
+- 📦 Improve packaging options for cross-platform support.
+- 🛡️ Enhance error handling and logging mechanisms.
+- 🌐 Add localization support for multiple languages.
+- 📚 Expand documentation with detailed usage examples.
+- 🚀 Explore additional AI-powered features for repository insights.
