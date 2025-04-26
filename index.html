@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GelGIT</title>
+  <link href="https://cdn.jsdelivr.net/npm/modern-css-reset/dist/reset.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet" />
+  <style>
+    main { max-width: 800px; margin: auto; padding: 2rem; }
+    pre { background: #f0f0f0; padding: 1rem; border-radius: 6px; max-height: 300px; overflow-y: auto; }
+    .flex { display: flex; gap: 10px; }
+    .flex input[type=text] { flex: 1; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>🌊 Gel<b>GIT</b> - Git Repo Analyzer</h1>
+
+    <label for="repoPath">Git Repo Path:</label>
+    <div>
+      <input id="repoPath" type="text" placeholder="Select repository folder..." />
+      <button id="browseBtn">Browse</button>
+    </div>
+
+    <details>
+      <summary>Options</summary>
+      <div>
+        <label><input type="checkbox" id="useStat" checked /> Use --stat (summary diff)</label>
+        <label><input type="checkbox" id="aiSummary" /> Use AI Summarization</label>
+        <label><input type="checkbox" id="testMode" checked /> Test Mode (only 5 commits)</label>
+
+        <label for="apiKey">OpenAI API Key:</label>
+        <input id="apiKey" type="text" placeholder="sk-..." />
+      </div>
+    </details>
+    <button id="analyzeBtn" class="contrast">Run Analysis</button>
+    <pre id="output">Output will appear here...</pre>
+  </main>
+  <script src="renderer.js"></script>
+</body>
+</html>
