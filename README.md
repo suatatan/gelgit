@@ -2,7 +2,7 @@
 
 ![GelGIT Logo](gelgit.png)
 
-[![Download](https://img.shields.io/badge/Download-GelGIT-blue.svg)](https://github.com/vectorsolv/gelgit/releases/latest)
+[![Download](https://img.shields.io/badge/Download-GelGIT-blue.svg)](https://github.com/suatatan/gelgit/releases/tag/v1.0.0)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)
 ![Built With](https://img.shields.io/badge/built%20with-Electron.js-brightgreen)
