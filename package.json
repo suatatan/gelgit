@@ -1,12 +1,37 @@
 {
   "name": "gelgit",
-  "version": "1.2.0",
-  "description": "Git Repo Analyzer with Electron and Python",
+  "version": "1.0.0",
+  "description": "Git Repo Analyzer",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager . GelGIT --platform=win32 --arch=x64 --icon=icon.ico --overwrite",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.gelgit.app",
+    "productName": "GelGIT",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
   },
   "devDependencies": {
-    "electron": "^27.0.0"
+    "electron": "^27.0.0",
+    "electron-builder": "^24.0.0",
+    "electron-packager": "^17.1.0"
   }
 }

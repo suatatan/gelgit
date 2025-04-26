@@ -5,6 +5,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+# GelGIT specific
+GelGIT-win32-x64/
+
 # Electron.js
 # Compiled source
 *.asar
