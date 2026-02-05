@@ -12,7 +12,7 @@ for package in required_packages:
     try:
         __import__(package)
     except ImportError:
-        print(f"[GelGIT] Installing missing package: {package}", flush=True)
+        print(f"[GelGIT] Installing missing package+: {package}", flush=True)
         subprocess.check_call([sys.executable, "-m", "pip", "install", package])
         print(f"[GelGIT] {package} installed successfully.", flush=True)
 
@@ -64,11 +64,16 @@ def get_commit_info(commit_hash):
         stdout=subprocess.PIPE, text=True
     ).stdout.strip()
 
+    author = subprocess.run(
+        ["git", "log", "-1", "--pretty=format:%an", commit_hash],
+        stdout=subprocess.PIPE, text=True
+    ).stdout.strip()
+
     diff_cmd = ["git", "show", "--stat" if USE_STAT else "", commit_hash]
     diff_cmd = [arg for arg in diff_cmd if arg]
     diff = subprocess.run(diff_cmd, stdout=subprocess.PIPE, text=True).stdout.strip()
 
-    return message, date, diff
+    return message, date, author, diff
 
 def summarize_diff(diff_text):
     prompt = f"""
@@ -104,7 +109,7 @@ results = []
 for idx, commit_hash in enumerate(hashes):
     print(f"[{idx+1}/{len(hashes)}] Processing commit {commit_hash}", flush=True)
     try:
-        original_msg, date, diff = get_commit_info(commit_hash)
+        original_msg, date, author, diff = get_commit_info(commit_hash)
         summary = ""
         if AI_SUMMARY:
             summary = summarize_diff(diff)
@@ -113,6 +118,7 @@ for idx, commit_hash in enumerate(hashes):
             "date": date,
             "original_message": original_msg,
             "suggested_summary": summary,
+            "author": author
         })
     except Exception as e:
         print(f"[stderr] Error processing {commit_hash}: {e}", flush=True)
